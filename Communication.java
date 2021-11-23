@@ -36,7 +36,7 @@ public class Communication {
 		/**
 		 * @return the communication volume
 		 */
-		public long getVolume() {
+		public double getVolume() {
 			return volume;
 		}
 
