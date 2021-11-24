@@ -6,6 +6,7 @@ import java.util.Date;
 
 import javax.swing.JFrame;
 
+import org.uncommons.maths.random.Probability;
 import org.uncommons.watchmaker.framework.EvolutionObserver;
 import org.uncommons.watchmaker.framework.PopulationData;
 import org.uncommons.watchmaker.framework.termination.GenerationCount;
@@ -422,11 +423,11 @@ public class GeneticMapperTest {
 		// instantiate mapper
 		// passing as argument the array of tasks, array of comms and number of processors in the platform
 		
-		GeneticMapper mapper = new GeneticMapper(tasks, comms, 4);
+		GeneticMapper mapper = new GeneticMapper(tasks, comms, 9);
 		
 		
 		// set parameters to tune the two elements of the fitness function
-		mapper.setAlpha(400.0);
+		mapper.setAlpha(1.0);
 		mapper.setBeta(1.0);		
 		
 
@@ -440,14 +441,14 @@ public class GeneticMapperTest {
 		    }
 		});
 	
-		EvolutionMonitor<int[]> monitor = new EvolutionMonitor<int[]>();
+//		EvolutionMonitor<int[]> monitor = new EvolutionMonitor<int[]>();
 		
-		mapper.getEngine().addEvolutionObserver(monitor);
-		
-		JFrame frame = new JFrame("Evolution Monitor");
-		frame.getContentPane().add(monitor.getGUIComponent());
-		frame.pack();
-		frame.setVisible(true);
+//		mapper.getEngine().addEvolutionObserver(monitor);
+//		
+//		JFrame frame = new JFrame("Evolution Monitor");
+//		frame.getContentPane().add(monitor.getGUIComponent());
+//		frame.pack();
+//		frame.setVisible(true);
 		
 		int[] result = mapper.getEngine().evolve(1000, 20, new GenerationCount(180)); // evolve for 180 generations
 		System.out.println("Execution terminated - best mapping:");
