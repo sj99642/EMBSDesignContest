@@ -23,6 +23,7 @@ public class GeneticMapper implements FitnessEvaluator<int[]>{
 
 	Task[] tasks;
 	Communication[] comms;
+	Chip[] chips;
 	int processors;
 	EvolutionEngine<int[]> engine;
 	double alpha = 1.0;
@@ -103,18 +104,17 @@ public class GeneticMapper implements FitnessEvaluator<int[]>{
 	
 	public double getCost(int[] mapping) {
 		double cost = 0;
-		double mesh = 0;
+		double mesh = 16;
 		double factorFc = 0;
 		double factorFi = 0;
 		
 		for (int i=0;i<mapping.length;i++) {
-			int map = mapping[i];
-			//mesh += (mapping[i][0]/10) * (mapping[i][0]%10);
+			
 		}
 		
 		
 		
-		
+		cost = mesh + factorFc + factorFi;
 		
 		return cost;
 	}

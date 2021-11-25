@@ -419,11 +419,49 @@ public class GeneticMapperTest {
 		comms[68]=c68;
 		comms[69]=c69;
 		
+		Chip C0 = new Chip("C0");
+		Chip C1 = new Chip("C1");
+		Chip C2 = new Chip("C2");
+		Chip C3 = new Chip("C3");
+		Chip C4 = new Chip("C4");
+		Chip C5 = new Chip("C5");
+		Chip C6 = new Chip("C6");
+		Chip C7 = new Chip("C7");
+		Chip C8 = new Chip("C8");
+		Chip C9 = new Chip("C9");
+		Chip C10 = new Chip("C10");
+		Chip C11 = new Chip("C11");
+		Chip C12 = new Chip("C12");
+		Chip C13 = new Chip("C13");
+		Chip C14 = new Chip("C14");
+		Chip C15 = new Chip("C15");
+		
+		Chip[] chips= new Chip[16];
+		chips[0] = C0;
+		chips[1] = C1;
+		chips[2] = C2;
+		chips[3] = C3;
+		chips[4] = C4;
+		chips[5] = C5;
+		chips[6] = C6;
+		chips[7] = C7;
+		chips[8] = C8;
+		chips[9] = C9;
+		chips[10] = C10;
+		chips[11] = C11;
+		chips[12] = C12;
+		chips[13] = C13;
+		chips[14] = C14;
+		chips[15] = C15;
+		
+		
+		
+		
 		
 		// instantiate mapper
 		// passing as argument the array of tasks, array of comms and number of processors in the platform
 		
-		GeneticMapper mapper = new GeneticMapper(tasks, comms, 9);
+		GeneticMapper mapper = new GeneticMapper(tasks, comms, 16);
 		
 		
 		// set parameters to tune the two elements of the fitness function
