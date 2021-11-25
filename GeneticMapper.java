@@ -29,7 +29,7 @@ public class GeneticMapper implements FitnessEvaluator<int[]>{
 	double alpha = 1.0;
 	double beta = 1.0;
 	
-	public GeneticMapper(Task[] tasks, Communication[] comms, int processors) {
+	public GeneticMapper(Task[] tasks, Communication[] comms, Chip[] chips, int processors) {
 
 		this.tasks=tasks;
 		this.comms=comms;
@@ -189,6 +189,49 @@ public class GeneticMapper implements FitnessEvaluator<int[]>{
 		
 		return -1;
 	}
+	
+	private double[] getChipsCosts(Chip[] chips){
+		double[] costs = new double[chips.length];
+		for (int i = 0;i <= chips.length;i++) {
+			costs[i] = chips[1].getCost();
+		}
+		return costs;
+	}
+	
+	private Chip getHighCostChip(Chip[] chips){
+		int x = 0;
+		for (int i = 0;i <= chips.length;i++) {
+			if(this.getChipsCosts(chips)[i] > chips[x].getCost()) {
+				x = i;
+			}
+		}
+		return chips[x];
+	}
+	
+	private double getChipInput(Chip chip, Communication[] comms) {
+		double cost =0;
+		for (int i = 0;i <= chip.getTasks().length;i++) {
+			for (int j = 0;j <= comms.length;j++) {
+				if(comms[j].getReceiver().getName() == chip.getTasks()[i].getName()){
+					cost+=comms[j].getVolume();
+					}
+				}
+		}
+		return cost;
+	}
+	
+	private double getChipOutput(Chip chip, Communication[] comms) {
+		double cost =0;
+		for (int i = 0;i <= chip.getTasks().length;i++) {
+			for (int j = 0;j <= comms.length;j++) {
+				if(comms[j].getSender().getName() == chip.getTasks()[i].getName()){
+					cost+=comms[j].getVolume();
+					}
+				}
+		}
+		return cost;
+	}
+	
 	
 	
 

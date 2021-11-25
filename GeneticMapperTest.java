@@ -461,7 +461,7 @@ public class GeneticMapperTest {
 		// instantiate mapper
 		// passing as argument the array of tasks, array of comms and number of processors in the platform
 		
-		GeneticMapper mapper = new GeneticMapper(tasks, comms, 16);
+		GeneticMapper mapper = new GeneticMapper(tasks, comms, chips, 16);
 		
 		
 		// set parameters to tune the two elements of the fitness function
